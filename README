@@ -1,0 +1,23 @@
+Description:
+    I created this to tool to retrieve the Rotten Tomatoes
+    browser extensions API usage in my email. It currently 
+    only retrieves data for the first API key registered. 
+    I run this on a schedule on my server.
+
+Prerequisite Python package(s):
+    mechanize
+
+Parameters:
+    user_name = ''
+    password = ''
+    report_days = 5
+    mail_server = 'localhost'
+    mail_to = ''
+    mail_from = ''
+    mail_subject = 'RR API Report'
+
+    The path to python at the top of the script is also 
+    something that potentially needs to be changed based 
+    on your server configuration.
+    
+    
