@@ -22,7 +22,7 @@ report_url = 'http://developer.rottentomatoes.com/reports/lookup?'
 login_url = 'https://secure.mashery.com/login/developer.rottentomatoes.com/'
 year = str(datetime.datetime.now().year)
 
-# Create a ISO9601 date string. Taken from the machery JS code.
+# Create a ISO9601 date string. Taken from the mashery JS code.
 def get_ISO9601_string(year, month, date):
     return str(year) + '-' + str(month) + '-' + str(date) + 'T0:0:0GMT'
 
@@ -33,8 +33,8 @@ def extract_stats(response):
     statsMatch = re.findall(r'f:\'([\w\d ]+)\'', response, re.DOTALL)
     stats = []
     # format the stats with the date
-    for i in xrange(0, len(statsMatch), 3):
-        stats.append(statsMatch[i]+' - '+statsMatch[i+2])
+    for i in xrange(0, len(statsMatch), 2):
+        stats.append(statsMatch[i]+' - '+statsMatch[i+1])
 
     return stats
 
@@ -79,7 +79,7 @@ def main():
     params['end'] = get_ISO9601_string(end.year, end.month, end.day)
     # load report data
     br.open(report_url + urllib.urlencode(params))
-    # extrat api stats from report data
+    # extract api stats from report data
     stats = extract_stats(br.response().read())
     # send email with stats
     send_mail(format_stats(stats))
