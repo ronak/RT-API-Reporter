@@ -1,4 +1,4 @@
-#!~/usr/bin/Python
+#!/usr/bin/python
 
 import re, mechanize, datetime, urllib, smtplib, string
 
