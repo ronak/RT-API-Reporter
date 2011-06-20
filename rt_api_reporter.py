@@ -33,8 +33,8 @@ def extract_stats(response):
     statsMatch = re.findall(r'f:\'([\w\d ]+)\'', response, re.DOTALL)
     stats = []
     # format the stats with the date
-    for i in xrange(0, len(statsMatch), 2):
-        stats.append(statsMatch[i]+' - '+statsMatch[i+1])
+    for i in xrange(0, len(statsMatch), 3):
+        stats.append(statsMatch[i]+' - '+statsMatch[i+2])
 
     return stats
 
